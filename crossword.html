@@ -11,7 +11,6 @@
     <!-- <script src="foo.js"></script> -->
     <script type="text/javascript">
         function formatDM(value) {
-            value++;
             if (value < 10) {
                 return '0' + value;
             }
@@ -20,7 +19,7 @@
         }
 
         function formatDate(d) {
-            return `${formatDM(d.getDay())}${formatDM(d.getMonth())}${d.getFullYear()}`;
+            return `${formatDM(d.getDate())}${formatDM(d.getMonth() + 1)}${d.getFullYear()}`;
         }
 
         function daydiff(first, second) {
