@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Crossword</title>
+</head>
+
+<body>
+    <div id="content"></div>
+    <!-- <script src="foo.js"></script> -->
+    <script type="text/javascript">
+        function formatDM(value) {
+            if (value < 10) {
+                return '0' + value;
+            }
+
+            return '' + value;
+        }
+
+        function formatDate(d) {
+            return `${formatDM(d.getDate())}${formatDM(d.getMonth() + 1)}${d.getFullYear()}`;
+        }
+
+        function daydiff(first, second) {
+            return Math.trunc((second - first) / (1000 * 60 * 60 * 24));
+        }
+
+        function randomDate() {
+            const start = new Date(2016, 1, 1);
+            const today = new Date();
+            return new Date(start.getTime() + Math.random() * (today.getTime() - start.getTime()));
+        }
+
+        const start = new Date(2017, 0, 2);
+        const startIndex = 460;
+        const now = randomDate();
+        const daysSince = daydiff(start, now);
+        const nowIndex = startIndex + daysSince;
+        const dateStr = formatDate(now);
+        const u = `http://v.postimees.ee/ristsona/Veebiristsonad/Veebiristsona${nowIndex}-${dateStr}/Veebiristsona${nowIndex}-${dateStr}.html`;
+
+        console.info(u);
+        window.location = u;
+    </script>
+</body>
+
+</html>
