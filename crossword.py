@@ -21,9 +21,6 @@ else:
 
 startDate = date(2017, 1, 2)
 startIndex = 460
-
-#today = date.today()
-#today = date(2019, 2, 22)
 daysSince = (today-startDate).days
 
 nowIndex = startIndex + daysSince
